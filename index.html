@@ -29,40 +29,9 @@
 <!-- https://artssci.github.io/3d-models/Bunny.glb -->
  <!-- src="https://artssci.github.io/3D-Model-Uploads/uploads/Bunny.glb" -->
 
-   <!-- Video Entity -->
-      <a-video
-        id="myVideo"
-        src="myVideoSource"
-        position="0 2 -4"
-        width="16"
-        height="9"
-        autoplay="false"
-      ></a-video>
-
-      <!-- Camera -->
-      <a-entity camera look-controls></a-entity>
-    </a-scene>
-
+  
     <!-- Video Source -->
     <video id="myVideoSource" src="https://www.youtube.com/watch?v=Hy8kmNEo1i8&list=RDHy8kmNEo1i8&start_radio=1" loop="true" preload="auto"></video>
-
-    <script>
-      // Get the video element
-      const videoElement = document.querySelector('#myVideoSource');
-
-      // Get the a-video element
-      const aVideo = document.querySelector('#myVideo');
-
-      // Add click event listener to the a-video entity
-      aVideo.addEventListener('click', () => {
-        // Check if the video is paused and play it
-        if (videoElement.paused) {
-          videoElement.play();
-        } else {
-          videoElement.pause();
-        }
-      });
-    </script>
 
 </a-scene>
   </body>
