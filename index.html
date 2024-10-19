@@ -18,7 +18,6 @@
   <a-sphere color="yellow" radius="5" position="7 0 -7"></a-sphere>
 
   <!-- Text -->
-<a-video src="dbinis.mov"></a-video>
   <a-text value="Hello, Worlds!" position="0 5 -5" 
        animation="property: object3D.position.x; to:
 2.2; dir: alternate; dur: 2000; loop: true"></a-text>
@@ -29,6 +28,42 @@
     scale="5 5 5"></a-gltf-model>
 <!-- https://artssci.github.io/3d-models/Bunny.glb -->
  <!-- src="https://artssci.github.io/3D-Model-Uploads/uploads/Bunny.glb" -->
+
+   <!-- Video Entity -->
+      <a-video
+        id="myVideo"
+        src="https://www.youtube.com/watch?v=Hy8kmNEo1i8&list=RDHy8kmNEo1i8&start_radio=1"
+        position="0 2 -4"
+        width="16"
+        height="9"
+        autoplay="false"
+      ></a-video>
+
+      <!-- Camera -->
+      <a-entity camera look-controls></a-entity>
+    </a-scene>
+
+    <!-- Video Source -->
+    <video id="myVideoSource" src="your-video.mp4" loop="true" preload="auto"></video>
+
+    <script>
+      // Get the video element
+      const videoElement = document.querySelector('#myVideoSource');
+
+      // Get the a-video element
+      const aVideo = document.querySelector('#myVideo');
+
+      // Add click event listener to the a-video entity
+      aVideo.addEventListener('click', () => {
+        // Check if the video is paused and play it
+        if (videoElement.paused) {
+          videoElement.play();
+        } else {
+          videoElement.pause();
+        }
+      });
+    </script>
+
 </a-scene>
   </body>
 </html>
