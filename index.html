@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <!-- The next two lines of code are the A-Frame libraries -->
@@ -8,23 +7,25 @@
 <body>
 <!-- The scene, environment and objects -->
 <a-scene>
-  <a-entity environment="preset: moon; dressingAmount: 500"></a-entity>
-  <a-box src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/e4089e5007c2177db368470329a6e5be.jpg" color="white" depth="2" height="2" width="2" position="0 0 -5"></a-box>
-  
-<!--This is my Sphere-->  
-  <a-sphere id="mySphere" src="#myVideo" color="white" depth="2" height="2" width="2" position="5 5 5"></a-sphere>
-  
-  <video id="myVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/robot_hand.mp4" loop="true"
+<a-entity environment="preset: moon; dressingAmount: 500"></a-entity>
+<a-box color="white" depth="2" height="2" width="2" position="0 0 -5"></a-box>
+<a-box src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/catchips-ezgif.com-webp-to-jpg-converter.jpg"
+color="white" depth="2" height="2" width="2" position="0 0 -5"></a-box>
+
+<a-sphere id="mySphere" src= "#myVideo" color="yellow" radius="2" position="3 2 -10" rotation="0 -40 0" ></a-sphere>
+
+<video id="myVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/sims%20cat%20breakdancing%20but%20the%20drop%20is%20synced.mp4" loop="true"
 crossorigin="anonymous"></video>
 
 <a-camera>
 <a-cursor></a-cursor>
 </a-camera>
 
+
+
 </a-scene>
-
 <script>
-
+// Get the shape and video elements
 const sphere = document.querySelector('#mySphere');
 const video = document.querySelector('#myVideo');
 // Add an event listener to the sphere to play/pause the video on click
@@ -36,7 +37,6 @@ video.pause();
 }
 });
 </script>
-
 
 </body>
 </html>
