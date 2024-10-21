@@ -7,28 +7,32 @@
 <body>
 <!-- The scene, environment and objects -->
 <a-scene>
-<a-entity environment="preset: tron; dressingAmount: 500"></a-entity>
-<a-box color="white" depth="3" height="3" width="3" position="0 0 -5"></a-box>
-</a-scene>
-</body>
-<!-- The scene, environment and objects -->
-<a-scene>
 <a-entity environment="preset: moon; dressingAmount: 500"></a-entity>
-<a-box src=https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/freediddy.jpeg color="white" depth="4" height="4" width="4" position="0 0 -5"></a-box>
+<a-box src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/Smug_Jane.png" color="white" depth="4" height="4" width="4" position="0 2 -5"></a-box>
+
+<video id="myVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/monkey-hand-out-give-me-orangutan.mp4" loop="true"
+crossorigin="anonymous"></video>
+
+<a-box id= "myBox" src="#myVideo" color="white" depth="4" height="4" width="4" position="5 2 -5"></a-box>
+
+<script>
+// Get the shape and video elements
+const box = document.querySelector('#myBox');
+const video = document.querySelector('#myVideo');
+// Add an event listener to the sphere to play/pause the video on click
+box.addEventListener('click', () => {
+if (video.paused) {
+video.play();
+} else {
+video.pause();
+}
+});
+</script>
+
+<a-camera>
+<a-cursor></a-cursor>
+</a-camera>
+
 </a-scene>
-<body>
-  <h1>Hello World!</h1>
-  <p>This is your space to practice, get creative, and build your own projects from scratch.</p>
-
-  <script src="script.js"></script>
-<a-assets>
-  <img id="texture" src="texture.png">
-</a-assets>
-
-<!-- Basic cone. -->
-<a-cone color="tomato" radius-bottom="2" radius-top="0.5"></a-cone>
-
-<!-- Textured box. -->
-<a-cone src="#texture"></a-cone>
 </body>
 </html>
