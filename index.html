@@ -7,20 +7,27 @@
 <body>
 <!-- The scene, environment and objects -->
 <a-scene>
-<a-entity environment="preset: moon; dressingAmount: 500"></a-entity>
-<a-box src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/Smug_Jane.png" color="white" depth="4" height="4" width="4" position="0 2 -5"></a-box>
-
-<video id="myVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/monkey-hand-out-give-me-orangutan.mp4" loop="true"
+<a-entity environment="preset: goaland; dressingAmount: 500"></a-entity>
+<a-box color="white" depth="2" height="2" width="2" position="0 0 -5"></a-box>
+<a-box src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/oppanchu.png"
+color="white" depth="2" height="2" width="2" position="0 0 -5"></a-box>
+<!-- thi is my cone -->
+<a-cone id="myCone" src="#myVideo" color="white" radius-bottom="2" radius-top="1" position="4, 0, -5"></a-cone>
+<video id="myVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/robot_hand.mp4" loop="true"
 crossorigin="anonymous"></video>
 
-<a-box id= "myBox" src="#myVideo" color="white" depth="4" height="4" width="4" position="5 2 -5"></a-box>
+<a-camera>
+<a-cursor></a-cursor>
+</a-camera>
 
+</a-scene>
+<!-- this is the event that will allow us to play/pause the vidieo -->
 <script>
 // Get the shape and video elements
-const box = document.querySelector('#myBox');
+const cone = document.querySelector('#myCone');
 const video = document.querySelector('#myVideo');
 // Add an event listener to the sphere to play/pause the video on click
-box.addEventListener('click', () => {
+cone.addEventListener('click', () => {
 if (video.paused) {
 video.play();
 } else {
@@ -28,11 +35,5 @@ video.pause();
 }
 });
 </script>
-
-<a-camera>
-<a-cursor></a-cursor>
-</a-camera>
-
-</a-scene>
 </body>
 </html>
