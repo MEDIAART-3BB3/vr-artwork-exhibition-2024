@@ -1,41 +1,42 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <!-- The next two lines of code are the A-Frame libraries -->
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
-
-  </head>
-  <body>
-
-  <!-- add your scene and an environment below -->
+<head>
+<!-- The next two lines of code are the A-Frame libraries -->
+<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+</head>
+<body>
+<!-- The scene, environment and objects -->
 <a-scene>
-  <a-entity environment="preset: tron; dressingAmount: 500"></a-entity>
+  <a-entity environment="preset: moon; dressingAmount: 500"></a-entity>
+  <a-box src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/e4089e5007c2177db368470329a6e5be.jpg" color="white" depth="2" height="2" width="2" position="0 0 -5"></a-box>
+  
+<!--This is my Sphere-->  
+  <a-sphere id="mySphere" src="#myVideo" color="white" depth="2" height="2" width="2" position="5 5 5"></a-sphere>
+  
+  <video id="myVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/robot_hand.mp4" loop="true"
+crossorigin="anonymous"></video>
 
-  <!-- Add an object/primitive -->
-
-  <a-box color="tomato" depth="2" height="4" width="0.5" position="0 0 -2"></a-box>
-  <!-- A sphere -->
-  <a-sphere color="yellow" radius="5" position="7 0 -7"></a-sphere>
-
-  <!-- Text -->
-  <a-text value="Hello, Worlds!" position="0 5 -5" 
-       animation="property: object3D.position.x; to:
-2.2; dir: alternate; dur: 2000; loop: true"></a-text>
-
-<!-- An external 3D model  -->
-  <a-gltf-model src="https://artssci.github.io/3D-Model-Uploads/uploads/Bunny.glb"
- position="-2 0 -2"
-    scale="5 5 5"></a-gltf-model>
-<!-- https://artssci.github.io/3d-models/Bunny.glb -->
- <!-- src="https://artssci.github.io/3D-Model-Uploads/uploads/Bunny.glb" -->
-
- 
+<a-camera>
+<a-cursor></a-cursor>
+</a-camera>
 
 </a-scene>
-  </body>
+
+<script>
+
+const sphere = document.querySelector('#mySphere');
+const video = document.querySelector('#myVideo');
+// Add an event listener to the sphere to play/pause the video on click
+sphere.addEventListener('click', () => {
+if (video.paused) {
+video.play();
+} else {
+video.pause();
+}
+});
+</script>
+
+
+</body>
 </html>
-
-
-
-
-
