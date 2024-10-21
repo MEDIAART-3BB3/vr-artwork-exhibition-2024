@@ -7,29 +7,25 @@
 <body>
 <!-- The scene, environment and objects -->
 <a-scene>
-<a-entity environment="preset: moon; dressingAmount: 500"></a-entity>
-<a-box color="white" depth="2" height="2" width="2" position="0 0 -5"></a-box>
-<a-box src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/catchips-ezgif.com-webp-to-jpg-converter.jpg"
-color="white" depth="2" height="2" width="2" position="0 0 -5"></a-box>
-
-<a-sphere id="mySphere" src= "#myVideo" color="yellow" radius="2" position="3 2 -10" rotation="0 -40 0" ></a-sphere>
-
-<video id="myVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/sims%20cat%20breakdancing%20but%20the%20drop%20is%20synced.mp4" loop="true"
+<a-entity environment="preset: contact; dressingAmount: 500"></a-entity>
+<a-sphere color="white" depth="2" height="2" width="2" position="0 1 -5"
+animation="property:rotation; to: 0 360 0; dur: 2000; loop: true"></a-sphere>
+<a-sphere src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/zoboomafoo.png"
+color="white" depth="2" height="2" width="2" position="0 1 -5"
+animation="property:rotation; to: 0 360 0; dur: 2000; loop: true"
+></a-sphere>
+<video id="myVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/Daria%20Intro%20Theme.mp4" loop="true"
 crossorigin="anonymous"></video>
-
+<a-box id="myBox" src= "#myVideo" width= "2" height="2" depth="2" position="3 2 -5" animation="property:rotation; to: 0 360 0; dur: 5000; loop: true"></a-box>
 <a-camera>
 <a-cursor></a-cursor>
 </a-camera>
-
-
-
-</a-scene>
 <script>
 // Get the shape and video elements
-const sphere = document.querySelector('#mySphere');
+const box = document.querySelector('#myBox');
 const video = document.querySelector('#myVideo');
 // Add an event listener to the sphere to play/pause the video on click
-sphere.addEventListener('click', () => {
+box.addEventListener('click', () => {
 if (video.paused) {
 video.play();
 } else {
@@ -37,6 +33,24 @@ video.pause();
 }
 });
 </script>
-
+<a-video src="#myVideo2" width="4" height="4" position="-4 2 -5" 
+id="myAvideo" 
+></a-video>
+<video id="myVideo2" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/Marge%20Krumpin%20in%20the%2090's.mp4" loop="true"
+crossorigin="anonymous"></video>
+<script>
+// Get the shape and video elements
+const aVideo = document.querySelector('#myAvideo');
+const video2 = document.querySelector('#myVideo2');
+// Add an event listener to the shape to play/pause the video on click
+aVideo.addEventListener('click', () => {
+if (video2.paused) {
+video2.play();
+} else {
+video2.pause();
+}
+});
+</script>
+</a-scene>
 </body>
 </html>
