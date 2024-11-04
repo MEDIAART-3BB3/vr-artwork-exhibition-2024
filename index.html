@@ -1,68 +1,85 @@
 <html>
-
 <head>
-    <!-- The next two lines of code are the A-Frame libraries -->
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+
+<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+
+
 </head>
-
 <body>
-    <!-- Add your scene environment and objects below -->
 
-    <a-scene>
-        <a-videosphere src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/background.mp4"></a-videosphere>
+<a-scene>
 
-        <a-plane src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/11.jpeg" rotation="-90 0 0" width="1000" height="1000"></a-plane>
+<a-assets>
+  
+  <audio src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/audios/708115__scpsea__polar-bear-2026-jumpscare.wav"
+  loop="true"
+  crossorigin="anonymous"
+  ></audio>
 
-        <!-- Background music -->
-        <a-sound src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/audios/fengxi.wav" autoplay="true"></a-sound>
+  <video
+  id="myAsteroidsVideo"
+  src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/%EF%BC%9Blx.mp4"
+  loop="true"
+  crossorigin="anonymous"
+  ></video>
 
-        <!-- Spider model with smooth roaming movement, slightly raised -->
-        <a-gltf-model id="spiderModel" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Arachnor.glb" 
-                      position="-100 2 60" rotation="0 0 0" scale="20 20 20"
-                      animation__position="property: position; to: 30 2 30; dir: alternate; dur: 10000; easing: easeInOutSine; loop: true"
-                      animation__rotation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-gltf-model>
+</a-assets>
 
-        <!-- Cave model placed beside the mushroom cluster and scaled to twice the mushroom size -->
-        <a-gltf-model id="caveModel" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Abandoned%20Shed%20in%20Forest.glb" 
-                      position="60 15 -40" rotation="0 45 0" scale="96 96 96"></a-gltf-model>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const mushroomLinks = [
-                    "https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/%E8%98%91%E8%8F%872.glb", // 红色蘑菇
-                    "https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/%E8%98%91%E8%8F%873.glb"  // 其他蘑菇
-                ];
+<a-sky src="#myAsteroidsVideo"></a-sky>
 
-                const createMushroom = (x, z, scale, rotation) => {
-                    const mushroomModel = document.createElement('a-gltf-model');
-                    mushroomModel.setAttribute('src', mushroomLinks[Math.floor(Math.random() * mushroomLinks.length)]);
-                    mushroomModel.setAttribute('position', `${x} ${Math.random() * 5 + 1} ${z}`);
-                    mushroomModel.setAttribute('scale', scale);
-                    mushroomModel.setAttribute('rotation', rotation);
-                    mushroomModel.setAttribute('animation', 'property: scale; dir: alternate; dur: 1000; to: 48 48 48; loop: true');
+<!-- a custom ground  -->
+ <a-plane src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/%E5%9C%B0%E9%9D%A2.jpg" rotation="-90 0 0"
+width="500"
+height="700"
+material="transparent: true; alphaTest: 0.5; ;"
+></a-plane>
 
-                    document.querySelector('a-scene').appendChild(mushroomModel);
-                };
 
-                // Create mushrooms with spread-out coordinates
-                const numberOfMushrooms = 14; // 14 regular mushrooms
-                for (let i = 0; i < numberOfMushrooms; i++) {
-                    const x = (Math.random() - 0.5) * 80; // Increased spread area
-                    const z = (Math.random() - 0.5) * 80;
-                    
-                    // Check if it is the red mushroom (first link in the array)
-                    const isRedMushroom = Math.random() < 0.5; // 50% chance to choose red mushroom
-                    const rotation = isRedMushroom ? "0 -100 0" : "0 0 0"; // Rotate red mushroom counter-clockwise 100 degrees
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Smart%20World%20by%20FIWARE.glb"
+position="-18 6 -38" 
+rotation="-2 0 -2" 
+scale="20 20 20" >
+</a-gltf-model>
 
-                    createMushroom(x, z, '48 48 48', rotation); //蘑菇放大 10 倍
-                }
 
-                // Create one larger, prominent mushroom
-                createMushroom(0, -10, '96 96 96', "0 -100 0"); // Large mushroom with 100-degree counter-clockwise rotation
-            });
-        </script>
-    </a-scene>
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/beijixiong.glb"
+position="-7 -1.5 -38" 
+rotation="3 3 5" 
+scale="25 25 25"
+animation="property:rotation; to: 0 0 -90; dur: 60000; loop: true"
+></a-gltf-model>
+<a-plane
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/watercolor-mountain-hand-drawn-watercolor-png.webp"
+width="60"
+height="17"
+position="0 5 -50"
+material="transparent: true; alphaTest: 0.5;"
+></a-plane>
+
+</a-scene>
+
+  <button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">Play Video and Sound</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mediaElements = document.querySelectorAll('video, audio');
+    const playButton = document.querySelector('#playButton');
+
+    playButton.addEventListener('click', () => {
+      mediaElements.forEach(media => {
+        if (media.paused) {
+          media.play();
+          playButton.textContent = 'Pause Video and Sound';
+        } else {
+          media.pause();
+          playButton.textContent = 'Play Video and Sound';
+        }
+      });
+    });
+  });
+</script>
 </body>
-
 </html>
