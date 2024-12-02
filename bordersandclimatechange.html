@@ -63,29 +63,12 @@ loop: true"></a-gltf-model>
 <audio src="https://files.catbox.moe/p8jcy0.wav" loop="true"      crossorigin="anonymous" ></audio>
 
 </a-scene>
-
-<button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">
-    Play Video and Sound</button>
-
-    <script>
-   document.addEventListener('DOMContentLoaded', () => {
-     const mediaElements = document.querySelectorAll('video, audio');
-     const playButton = document.querySelector('#playButton');
-
-     playButton.addEventListener('click', () => {
-       mediaElements.forEach(media => {
-         if (media.paused) {
-           media.play();
-           playButton.textContent = 'Pause Video and Sound';
-         } else {
-           media.pause();
-           playButton.textContent = 'Play Video and Sound';
-         }
-       });
-     });
-   });
- </script>
-
+   <div class="about">
+    <h1> Within The Next 1000 Years by Jinni Chi</h1>
+    <p>
+ A future torn apart by climate change, and how nationalism, imperialism and colonialism might preserve itself despite the destruction of the planet. In my artwork I created a planet destroyed, where, despite all of humanity being forcefully removed from their homes and flooded into decimation, the maintenance of borders and states still intact.  
+ </p>
+   </div>
 </body>
 
 </html>
