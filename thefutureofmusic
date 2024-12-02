@@ -1,0 +1,112 @@
+<html>
+
+<head>
+<!-- The next two lines of code are the A-Frame libraries -->
+<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+</head>
+
+<a-assets>
+  <!-- An audio of space sounds -->
+  <audio
+  src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/audios/670093__sergequadrado__fantastic-voyage.wav"
+  loop="true"
+  crossorigin="anonymous"
+  ></audio>
+
+<!-- A video of Music Mixer -->
+<video id="musicvideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/Video_Music.mp4"
+  loop="true" crossorigin="anonymous"></video>
+ 
+
+</a-assets>
+
+<a-scene>
+<body>
+<!-- add your scene environment and objects below -->
+
+<!--a custom image of the sky from Pexels-->
+<a-sky src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/Sky%20at%20Night.jpg"></a-sky>
+
+<!--a custom image of the ground from pexels-->
+<a-plane src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/pexels-pixabay-39685_Ground.jpg" rotation="-90 0 0"
+width="1000" height="1000" material="repeat: 500 500 ;"></a-plane>
+
+
+
+<a-camera>
+<a-cursor></a-cursor>
+</a-camera>
+
+<!--a 3D model of a stereo system-->
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Vintage%20Sears%20Electronics%20Audio%20System.glb"
+position="0 1.7 -5" rotation="0 0 0" animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 3000;
+loop: true"></a-gltf-model>
+
+<!--a 3D Model of a mixing console -->
+
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Mixing%20Console%20with%20Energy%20Drink%20Can.glb"
+position="3 2.7 -10" rotation="1 0 3" ></a-gltf-model>
+
+<!--a box to place the stereo system on-->
+<a-box src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/Music_pexels-benjaminlehman-1436141.jpg" depth="2" height="3" width="5" position="0 0 -5"></a-box>
+
+<!--rotating box on the right-->
+<a-box src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/Music_pexels-pixabay-257904.jpg" depth="10" height="10" width="10" position="10 5 -15" animation="property:rotation; to: 0 -360 0; dur: 5000; loop: true"></a-box>
+
+<!--rotating cylinder on left-->
+<a-cylinder src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/Music_pexels-rdne-8198136.jpg" depth="70" height="15" width="75" position="-10 5 -15" animation="property:rotation; to: 0 360 0; dur: 3000; loop: true"></a-cylinder>
+
+<!--box at the back for video-->
+<a-box id="videobox" src="	https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/Video_Music.mp4" position="-10 3 -50" rotation="0 0 0" 
+depth="30" height="40"
+width="40"
+color="blue"></a-box>
+
+<a-video src="musicvideo"
+id="#videobox" ></a-video>
+<video id="#musicvideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/Video_Music.mp4" loop="true"
+crossorigin="anonymous"></video>
+
+ <a-scene>
+
+<!--play and pause button-->
+<button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">
+    Play Video and Sound</button>
+
+     <script>
+  // The code that makes the video and sound play
+   document.addEventListener('DOMContentLoaded', () => {
+     const mediaElements = document.querySelectorAll('video, audio');
+     const playButton = document.querySelector('#playButton');
+
+     playButton.addEventListener('click', () => {
+       mediaElements.forEach(media => {
+         if (media.paused) {
+           media.play();
+           playButton.textContent = 'Pause Video and Sound';
+         } else {
+           media.pause();
+           playButton.textContent = 'Play Video and Sound';
+         }
+       });
+     });
+   });
+
+   // Get the shape and video elements
+const box = document.querySelector('videobox');
+const video = document.querySelector('musicvideo');
+
+box.addEventListener('click', () => {
+if (video.paused) {
+video.play();
+} else {
+video.pause();
+}
+});
+ </script>
+
+
+</body>
+
+<html>
