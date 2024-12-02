@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'ukranianwar.html',
     'soccerinthefuture.html',
     'thefutureofcamping.html',
+    'bordersandclimatechange.html',
     'thefutureofchinesetradition.html',
     'thefutureofmusic.html'        
   ];
