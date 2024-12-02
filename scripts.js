@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Navigation logic
   const links = [
+    'index.html',
     'hamilton_future.html',
     'elysium.html',
     'futureofcars.html',
