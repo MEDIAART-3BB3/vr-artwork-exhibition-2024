@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'thefutureofcamping.html',
     'bordersandclimatechange.html',
     'thefutureofchinesetradition.html',
-    'thefutureofmusic.html',
-    'ukranianwar.html'
+    'thefutureofmusic.html'
+    // 'ukranianwar.html'
   ];
 
   // Determine the current index based on the current URL
