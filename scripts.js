@@ -8,15 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     'index.html',
     // 'hamilton_future.html',
     'elysium.html',
-    'futureofcars.html',
+    // 'futureofcars.html',
     'futureofchinesearchitecture.html',
     'next1000years.html',
-    'ukranianwar.html',
     'soccerinthefuture.html',
     'thefutureofcamping.html',
     'bordersandclimatechange.html',
     'thefutureofchinesetradition.html',
-    'thefutureofmusic.html'        
+    'thefutureofmusic.html',
+    'ukranianwar.html'
   ];
 
   // Determine the current index based on the current URL
