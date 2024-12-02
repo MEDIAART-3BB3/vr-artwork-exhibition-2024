@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .ui-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      z-index: 999; /* Ensures the UI appears above the scene */
+    }
+
+    .nav-button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .nav-button:hover {
+      background-color: #555;
+    }
+
+    .enter-vr-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .enter-vr-container a-enter-vr {
+      height: 50px;
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <!-- VR Scene -->
+  <a-scene>
+    <a-box position="0 1.5 -3" rotation="0 45 0" color="red"></a-box>
+  </a-scene>
+
+  <!-- Navigation UI -->
+  <div class="ui-container">
+    <button class="nav-button" id="prevButton">Previous</button>
+
+    <!-- Centered Enter VR Button -->
+    <div class="enter-vr-container">
+      <a-enter-vr></a-enter-vr>
+    </div>
+
+    <button class="nav-button" id="nextButton">Next</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const prevButton = document.getElementById('prevButton');
+      const nextButton = document.getElementById('nextButton');
+
+      // Navigation logic
+      const links = [
+        'artwork1.html',
+        'artwork2.html',
+        'artwork3.html'
+      ];
+
+      let currentIndex = 0;
+
+      const navigateTo = (index) => {
+        if (index >= 0 && index < links.length) {
+          window.location.href = links[index];
+        }
+      };
+
+      prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + links.length) % links.length;
+        navigateTo(currentIndex);
+      });
+
+      nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % links.length;
+        navigateTo(currentIndex);
+      });
+    });
+  </script>
+</body>
+</html>
