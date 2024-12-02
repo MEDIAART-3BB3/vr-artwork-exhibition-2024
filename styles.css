@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.ui-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  z-index: 999; /* Ensures the UI appears above the scene */
+}
+
+.nav-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-button:hover {
+  background-color: #555;
+}
+
+.a-enter-vr {
+width:10%;
+height: 20%;
+/* background-color: red; */
+margin-right: 42vw;
+margin-bottom: 18vw;
+z-index: 9999;         /* Ensures it is above other elements */
+}
+
+.a-enter-vr-button {
+width: 150px;          /* Optional: Adjusts button size */
+height: 150px;          /* Optional: Adjusts button size */
+background-color: #333; /* Optional: Adds styling */
+color: white;
+font-size: 16px;
+border-radius: 10px;
+border: none;
+cursor: pointer;
+}
+
+.a-enter-vr-button::before {
+content: "Enter VR";   /* Adds text to the button */
+display: block;        /* Ensures the text is properly displayed */
+text-align: center;    /* Centers the text within the button */
+}
+
