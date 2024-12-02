@@ -1,7 +1,23 @@
 body {
-  margin: 0;
-  overflow: hidden;
+    margin: 0;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+
+  }
+
+.about {
+  text-align: center;
+  background-color: #333;
+  border-radius: 5px;
+  color: white;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Ensures the UI appears above the scene */
+
 }
+
 
 .ui-container {
   position: absolute;
