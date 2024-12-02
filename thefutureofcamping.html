@@ -1,0 +1,108 @@
+<html>
+<head>
+
+<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+
+
+</head>
+<body>
+
+<a-scene>
+
+<a-assets>
+
+  <audio
+  src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/audios/nature%20sound%20effects.mp3"
+  loop="true"
+  crossorigin="anonymous"
+  ></audio>
+
+
+  <video
+  id="myBlueSky"
+  src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/skyvideo.mp4"
+  loop="true"
+  crossorigin="anonymous"
+  ></video>
+
+</a-assets>
+
+
+<a-sky src="#myBlueSky"></a-sky>
+
+
+ <a-plane src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/grass.jpg" rotation="-90 0 0"
+width="1000"
+height="1000"
+material="repeat: 500 500 ;"
+></a-plane>
+
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/quick_treeit_tree.glb"
+position="-10 0 -50"  
+rotation="-2 0 -2"
+></a-gltf-model>
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/quick_treeit_tree.glb"
+position="30 0 -20"  
+rotation="-2 0 -2"
+></a-gltf-model>
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/quick_treeit_tree.glb"
+position="-30 0 -20"  
+rotation="-2 0 -2"
+></a-gltf-model>
+
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Tent.glb"
+position="-2 2 -15" 
+scale="5 5 5"
+></a-gltf-model>
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Campfire%20S%E2%80%99more%20%F0%9F%98%8B%F0%9F%8D%AB.glb"
+position="-10 -1.4 -10" 
+scale="10 10 10"
+animation="property:rotation; to: 0 -90 0; dur: 60000; loop: true"
+></a-gltf-model>
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/DexH.glb"
+position="1 0.6 -6" 
+scale="3 3 3"
+></a-gltf-model>
+
+
+
+</a-scene>
+
+
+  <button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">Play Video and Sound</button>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mediaElements = document.querySelectorAll('video, audio');
+    const playButton = document.querySelector('#playButton');
+
+    playButton.addEventListener('click', () => {
+      mediaElements.forEach(media => {
+        if (media.paused) {
+          media.play();
+          playButton.textContent = 'Pause Video and Sound';
+        } else {
+          media.pause();
+          playButton.textContent = 'Play Video and Sound';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
