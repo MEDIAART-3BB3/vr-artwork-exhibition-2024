@@ -34,32 +34,29 @@
     .nav-button:hover {
       background-color: #555;
     }
-
-    
-/*     .a-enter-vr {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    } */
-    
-/* a-enter-vr-button */
-/*     .a-enter-vr .a-enter-vr-button {
-      height: 50px;
-      width: 150px;
-    }
- */
-a-enter-vr {
-  visibility: hidden;
-  position: relative;
+.a-enter-vr {
+  position: fixed;       /* Keeps the button in the same position on the screen */
+  top: 50%;              /* Moves the button to the vertical center */
+  left: 50%;             /* Moves the button to the horizontal center */
+  transform: translate(-50%, -50%); /* Ensures exact centering */
+  z-index: 9999;         /* Ensures it is above other elements */
 }
 
-a-enter-vr::before {
-  content: "Enter VR";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  visibility: visible;
+.a-enter-vr-button {
+  width: 100px;          /* Optional: Adjusts button size */
+  height: 50px;          /* Optional: Adjusts button size */
+  background-color: #333; /* Optional: Adds styling */
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.a-enter-vr-button::before {
+  content: "Enter VR";   /* Adds text to the button */
+  display: block;        /* Ensures the text is properly displayed */
+  text-align: center;    /* Centers the text within the button */
 }
 
   </style>
