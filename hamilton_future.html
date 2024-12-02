@@ -86,33 +86,32 @@ material="transparent: true; alphaTest: 0.5;"
 </a-scene>
 
 <!-- Play button for play/pause video and audio -->
-  <button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">Play Video and Sound</button>
-
+<!--   <button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">Play Video and Sound</button>
+ -->
 <script>
-// The code that makes the video and audio play
 document.addEventListener('DOMContentLoaded', () => {
   const mediaElements = document.querySelectorAll('video, audio');
-  const playButton = document.querySelector('#playButton');
   const scene = document.querySelector('a-scene');
 
-  playButton.addEventListener('click', () => {
+  // Listen for the "enter-vr" event
+  scene.addEventListener('enter-vr', () => {
     mediaElements.forEach(media => {
       if (media.paused) {
         media.play();
-        playButton.textContent = 'Pause Video and Sound';
-      } else {
-        media.pause();
-        playButton.textContent = 'Play Video and Sound';
       }
     });
+  });
 
-    // Return focus to the scene after the button click
-    scene.focus();
+  // Optional: Pause media when exiting VR
+  scene.addEventListener('exit-vr', () => {
+    mediaElements.forEach(media => {
+      if (!media.paused) {
+        media.pause();
+      }
+    });
   });
 });
 </script>
-
-
 
 </body>
 </html>
