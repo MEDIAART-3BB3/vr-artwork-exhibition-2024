@@ -52,28 +52,22 @@ rotation="0 75 2"
 position="-13 3 -9"></a-gltf-model>
 
 </a-scene>
-<!-- Play button for user interaction -->
-  <button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">
-    Play Video and Sound</button>
-    <script>
-  // The code that makes the video and sound play
-   document.addEventListener('DOMContentLoaded', () => {
-     const mediaElements = document.querySelectorAll('video, audio');
-     const playButton = document.querySelector('#playButton');
 
-     playButton.addEventListener('click', () => {
-       mediaElements.forEach(media => {
-         if (media.paused) {
-           media.play();
-           playButton.textContent = 'Pause Video and Sound';
-         } else {
-           media.pause();
-           playButton.textContent = 'Play Video and Sound';
-         }
-       });
-     });
-   });
- </script>
+  
+  <!-- Navigation UI -->
+  <div class="ui-container">
+    <button class="nav-button" id="prevButton">Previous</button>
+
+    <!-- Centered Enter VR Button -->
+    <div class="enter-vr-container">
+      <a-enter-vr></a-enter-vr>
+    </div>
+
+    <button class="nav-button" id="nextButton">Next</button>
+  </div>
+
+  <script src="scripts.js"></script>
+
 </body>
 
 </html>
