@@ -1,0 +1,139 @@
+<html>
+  <!-- This code is made by Breanna Olivo and Shawn Sasitharan for MEDIAART 3BB3 -->
+<head>
+<!-- The next two lines of code are the A-Frame libraries -->
+<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+
+</head>
+<body>
+<!-- The scene, environment and objects -->
+<a-scene>
+
+<a-assets>
+
+  <!-- An audio of space sounds -->
+  <audio
+  src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/audios/484731__breviceps__futuristic-hover-car-space-car.wav"
+  loop="true"
+  crossorigin="anonymous"
+  ></audio>
+
+<!-- A video of flying car taken from YouTube (loyalty free) -->
+  <video
+  id="myFlyingCarVideo"
+  src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/Free%20scifi%20flying%20cars%20sprite%20pack%20(194%20cars).mp4"
+  loop="true"
+  crossorigin="anonymous"
+  ></video>
+</a-assets>
+
+  <!--  a custom sky playing the asteroids video from above -->
+<a-sky src="#myFlyingCarVideo" position="0 50 0" rotation="0 -50 0"></a-sky>
+
+<!-- a custom ground  -->
+ <a-plane src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/sand.jpg" rotation="-90 0 0"
+width="1000"
+height="1000"
+material="repeat: 500 500 ;"
+></a-plane>
+
+<!-- external 3D model of a old parking lot -->
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/parking%20lot%20-%20Breanna%20Olivo"
+position="15 15 -15"  
+rotation="0 0 0"
+scale="10 10 10"
+></a-gltf-model>
+
+<!--  external 3D model of of a broken Kia (left). -->
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/scrapped%20car.glb"
+scale="5 5 5"
+rotation="0 0 0"
+position="20 4 -20"
+></a-gltf-model>
+
+<!--  external 3D model of of a broken Kia (right). -->
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/scrapped%20car.glb"
+scale="5 5 5"
+rotation="0 0 0"
+position="30 4 -25"
+></a-gltf-model>
+
+<!--  external 3D model of a broke down Mercedes. -->
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/00-002%20Burnt%20down%20car.glb"
+scale="5 5 5"
+rotation="0 0 0"
+position="40 5 -10"
+></a-gltf-model>
+
+<!--  3D model of a broke down car. -->
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/00-002%20Burnt%20down%20car.glb"
+position="30 5 -7" 
+rotation="0 0 0" 
+scale="5 5 5"
+></a-gltf-model>
+
+<!--  3D model of a tesla charging station 1. -->
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Tesla%20charding%20station%20-%20Breanna%20Olivo"
+position="-20 -2 -10" 
+rotation="0 0 0" 
+scale="5 5 5"
+></a-gltf-model>
+<!--  3D model of a tesla charging station 2. -->
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Tesla%20charding%20station%20-%20Breanna%20Olivo"
+position="-20 -2 -5" 
+rotation="0 0 0" 
+scale="5 5 5"
+></a-gltf-model>
+<!--  3D model of a tesla charging station 3. -->
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Tesla%20charding%20station%20-%20Breanna%20Olivo"
+position="-20 -2 -15" 
+rotation="0 0 0" 
+scale="5 5 5"
+></a-gltf-model>
+
+<!--  3D model of a tesla robot front. -->
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Tesla%20Optimus%20Robot%20Elon%20SpaceX.glb"
+position="-10 -1 -8" 
+rotation="0 0 0" 
+scale="5 5 5"
+></a-gltf-model>
+
+<!--  3D model of a tesla robot back. -->
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Tesla%20Optimus%20Robot%20Elon%20SpaceX.glb"
+position="-10 -1 -14" 
+rotation="0 0 0" 
+scale="5 5 5"
+></a-gltf-model>
+
+</a-scene>
+
+<!-- Play button for user interaction -->
+  <button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">Play Video and Sound</button>
+
+<!-- The code that makes the video play -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mediaElements = document.querySelectorAll('video, audio');
+    const playButton = document.querySelector('#playButton');
+
+    playButton.addEventListener('click', () => {
+      mediaElements.forEach(media => {
+        if (media.paused) {
+          media.play();
+          playButton.textContent = 'Pause Video and Sound';
+        } else {
+          media.pause();
+          playButton.textContent = 'Play Video and Sound';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
