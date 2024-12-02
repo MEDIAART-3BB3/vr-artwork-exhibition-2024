@@ -68,28 +68,19 @@ position="0 89 25" rotation="0 150 0" width="10" height="10" animation="property
 
 </a-scene>
 
-<!-- Play button for user interaction -->
-  <button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">Activate Scene</button> 
 
-  <!-- The code that makes the video play -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const mediaElements = document.querySelectorAll('video, audio');
-    const playButton = document.querySelector('#playButton');
+  <!-- Navigation UI -->
+  <div class="ui-container">
+    <button class="nav-button" id="prevButton">Previous</button>
 
-    playButton.addEventListener('click', () => {
-      mediaElements.forEach(media => {
-        if (media.paused) {
-          media.play();
-          playButton.textContent = 'Deactivate Scene';
-        } else {
-          media.pause();
-          playButton.textContent = 'Activate Scene';
-        }
-      });
-    });
-  });
-</script>
+    <!-- Centered Enter VR Button -->
+    <div class="enter-vr-container">
+      <a-enter-vr></a-enter-vr>
+    </div>
 
+    <button class="nav-button" id="nextButton">Next</button>
+  </div>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
