@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<!-- The next two lines of code are the A-Frame libraries -->
+<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+</head>
+
+<body>
+<!-- add your scene environment and objects below -->
+<a-scene>
+  <audio src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/audios/170112__robinhood76__03784-futuristic-ambience-science.wav" loop="true"      crossorigin="anonymous" ></audio>
+
+<video id="myAsteroidsVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/4354035-uhd_3840_2160_25fps.mp4"
+  loop="true" crossorigin="anonymous"></video>
+  <a-video src="#myAsteroidsVideo" width= "7" height="7" position="10 5 -7" rotation="2 -50 2"></a-video>
+
+  <video id="green" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/18069473-uhd_2160_3840_24fps.mp4" loop="true" crossorigin="anonymous"></video>
+  <a-video src="#green" width="20" height="20" position="-25 10 0" rotation="-10 -270 25"></a-video>
+  
+<a-sky src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/IMG_4480.jpeg"></a-sky>
+
+<a-plane src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/IMG_4479.jpeg" rotation="-90 0 0"
+width="1000" height="1000" material="repeat: 500 500 ;"></a-plane>
+<a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Bender%20from%20Futurama%20Toy.glb"
+position="-5 2 -5" rotation="2 120 2" scale="20 20 20" animation="property:rotation; to: 0 0 0; dur: 6000; loop: true"></a-gltf-model>
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Lego%20Great%20Wall%20of%20China%20(1).glb"
+scale="120 120 120"
+rotation="0 90 0"
+position="-2 7 -20"
+></a-gltf-model>
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Fairy%20and%20a%20butteryfly.glb"
+scale="200 200 200"
+rotation="0 0 0"
+position="2 -3 -350"
+animation="property:rotation; to: 0 360 0; dur: 6000; loop: true"></a-gltf-model>
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Entrance%20to%20OldTown%20Chinatown.glb"
+scale="2 2 2"
+rotation="0 -45 2"
+position="0 3 -12"></a-gltf-model>
+
+<a-gltf-model
+src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Entrance%20to%20OldTown%20Chinatown.glb"
+scale="2 2 2"
+rotation="0 75 2"
+position="-13 3 -9"></a-gltf-model>
+
+</a-scene>
+<!-- Play button for user interaction -->
+  <button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">
+    Play Video and Sound</button>
+    <script>
+  // The code that makes the video and sound play
+   document.addEventListener('DOMContentLoaded', () => {
+     const mediaElements = document.querySelectorAll('video, audio');
+     const playButton = document.querySelector('#playButton');
+
+     playButton.addEventListener('click', () => {
+       mediaElements.forEach(media => {
+         if (media.paused) {
+           media.play();
+           playButton.textContent = 'Pause Video and Sound';
+         } else {
+           media.pause();
+           playButton.textContent = 'Play Video and Sound';
+         }
+       });
+     });
+   });
+ </script>
+</body>
+
+</html>
