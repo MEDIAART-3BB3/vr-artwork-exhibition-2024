@@ -36,17 +36,32 @@
     }
 
     
-    .a-enter-vr {
+/*     .a-enter-vr {
       display: flex;
       justify-content: center;
       align-items: center;
-    }
+    } */
     
 /* a-enter-vr-button */
-    .a-enter-vr .a-enter-vr-button {
+/*     .a-enter-vr .a-enter-vr-button {
       height: 50px;
       width: 150px;
     }
+ */
+    button.enter-vr {
+  visibility: hidden;
+  position: relative;
+}
+
+button.enter-vr::before {
+  content: "Enter VR";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: visible;
+}
+
   </style>
 </head>
 <body>
