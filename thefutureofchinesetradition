@@ -1,0 +1,71 @@
+<html>
+<head>
+<!-- The next two lines of code are the A-Frame libraries -->
+<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+</head>
+<body>
+
+<a-scene>
+  <a-assets>
+    <audio src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/audios/8888.wav" loop="true"
+    crossorigin="anonymous" ></audio>
+    <video id="myVideo" src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/videos/Futuristic%20Chinese%20Temple_Jin.mov" loop="true" crossorigin="anonymous"></video>
+  </a-assets>
+
+  <a-sky src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/6666.jpg"></a-sky>
+  <a-plane src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/5555.jpg" rotation="-90 0 0"
+    width="1000" height="1000" material="repeat: 500 500 ;"></a-plane>
+
+
+
+  <a-box id="myBox" material="src: #myVideo" color="tomato" depth="10" height="10" width="4" position="6 0 -15"></a-box>
+
+<a-plane id="myPlane" 
+         material="src: https://mediaart-3bb3.github.io/vr_assets_fall_2024/images/Futuristic_Jin.jpeg"
+         width="4" height="5" 
+         position="-5 8 -10.5" 
+         rotation="0 2 0"
+         animation="property: position; dir: alternate; dur: 2000; easing: easeInOutSine; loop: true; to: -5 11 -11">
+</a-plane>
+
+
+  <a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/chinese%20temple%20interior_Jin.glb"
+    position="-6 1.8 -3" rotation="0 90 0" scale="3 3 3"></a-gltf-model>
+
+
+ <a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/Lion%20guarding_Jin.glb"
+    position="0 0.8 -4" rotation="0 190 0" ></a-gltf-model>
+
+   <a-gltf-model src="https://mediaart-3bb3.github.io/vr_assets_fall_2024/3d-models/7777.glb"
+    position="0 0 -25" rotation="0 0 0" scale="70 70 70"></a-gltf-model>
+
+  <a-camera>
+    <a-cursor></a-cursor>
+  </a-camera>
+</a-scene>
+<!-- Play button for user interaction -->
+  <button id="playButton" style="position: absolute; top: 20px; left: 20px; z-index: 999;">Play Video and Sound</button>
+
+<!-- The code that makes the video play -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mediaElements = document.querySelectorAll('video, audio');
+    const playButton = document.querySelector('#playButton');
+
+    playButton.addEventListener('click', () => {
+      mediaElements.forEach(media => {
+        if (media.paused) {
+          media.play();
+          playButton.textContent = 'Pause Video and Sound';
+        } else {
+          media.pause();
+          playButton.textContent = 'Play Video and Sound';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
