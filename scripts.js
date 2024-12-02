@@ -1,41 +1,51 @@
+// Links
+document.addEventListener('DOMContentLoaded', () => {
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
 
- // links
-    document.addEventListener('DOMContentLoaded', () => {
-      const prevButton = document.getElementById('prevButton');
-      const nextButton = document.getElementById('nextButton');
+  // Navigation logic
+  const links = [
+    'hamilton_future.html',
+    'elysium.html',
+    'futureofcars.html',
+    'futureofchinesearchitecture.html',
+    'next1000years.html',
+    'ukranianwar.html',
+    'soccerinthefuture.html',
+    'thefutureofcamping.html',
+    'thefutureofchinesetradition.html',
+    'thefutureofmusic.html'        
+  ];
 
-      // Navigation logic
-      const links = [
-        'hamilton_future.html',
-        'elysium.html',
-        'futureofcars.html',
-        'futureofchinesearchitecture.html',
-        'next1000years.html',
-        'ukranianwar.html',
-        'soccerinthefuture.html',
-        'thefutureofcamping.html',
-        'thefutureofchinesetradition.html',
-        'thefutureofmusic.html'        
-      ];
+  // Determine the current index based on the current URL
+  const currentUrl = window.location.pathname.split('/').pop(); // Gets the current file name
+  let currentIndex = links.indexOf(currentUrl);
 
-      let currentIndex = 0;
+  // Fallback if the current page isn't in the list
+  if (currentIndex === -1) {
+    console.warn('Current page not found in links array.');
+    currentIndex = 0; // Default to the first link
+  }
 
-      const navigateTo = (index) => {
-        if (index >= 0 && index < links.length) {
-          window.location.href = links[index];
-        }
-      };
+  // Navigate to a specific index
+  const navigateTo = (index) => {
+    if (index >= 0 && index < links.length) {
+      window.location.href = links[index];
+    }
+  };
 
-      prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + links.length) % links.length;
-        navigateTo(currentIndex);
-      });
+  // Event listeners for navigation
+  prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + links.length) % links.length;
+    navigateTo(currentIndex);
+  });
 
-      nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % links.length;
-        navigateTo(currentIndex);
-      });
-    });
+  nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % links.length;
+    navigateTo(currentIndex);
+  });
+});
+
 
 
 // VR button 
